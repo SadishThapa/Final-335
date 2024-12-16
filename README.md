@@ -1,4 +1,5 @@
 # Terp Finance Application
+[Link to Github](https://github.com/SadishThapa/Final-335)
 
 **Submitted by**: Sadish Thapa (directory id: sthapa14)  
 **Group Members**: Lucas Sotomayor (soto1120), Alexander Corea (axco1220)
