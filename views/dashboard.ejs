@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Terps SummerCamp</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+
+<body>
+    <div class="navbar">
+        <button>Dashboard</button>
+    </div>
+
+    <h1 id="header">Welcome! Here are Your Finances:</h1>
+
+    <div class="form-container">
+        <form action="/add-entry" method="POST">
+            <div class="form-field">
+                <label>Description</label>
+                <input type="text" name="description" class="input" required />
+            </div>
+            <div class="form-field">
+                <label>Amount</label>
+                <input type="number" name="amount" class="input" required />
+            </div>
+            <div class="form-field">
+                <label>Category</label>
+                <select name="category" class="input" required>
+                    <option value="">Select a Category</option>
+                    <option value="Food">Food</option>
+                    <option value="Rent">Rent</option>
+                    <option value="Salary">Salary</option>
+                    <option value="Utilities">Utilities</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="form-field">
+                <label>Payment Method</label>
+                <select name="paymentMethod" class="input" required>
+                    <option value="">Select a payment method</option>
+                    <option value="card">Card</option>
+                    <option value="cash">Cash</option>
+                </select>
+            </div>
+            <button type="submit" class="button">Add Record</button>
+        </form>
+    </div>
+
+    <hr>
+
+    <h2>Your Entries:</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Description</th>
+                <th>Amount</th>
+                <th>Category</th>
+                <th>Payment Method</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if (entries && entries.length > 0) { %>
+                <% entries.forEach(entry => { %>
+                    <tr>
+                        <td><%= entry.description %></td>
+                        <td><%= entry.amount.toFixed(2) %></td>
+                        <td><%= entry.category %></td>
+                        <td><%= entry.paymentMethod %></td>
+                        <td><%= entry.date.toDateString() %></td>
+                    </tr>
+                <% }) %>
+            <% } else { %>
+                <tr>
+                    <td colspan="5">No entries found</td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+
+    <hr>
+
+    <!-- Stock Price Lookup Section -->
+    <h2>Check Stock Prices</h2>
+    <form id="stockForm">
+        <input type="text" id="stockSymbol" placeholder="Enter Stock Symbol" required />
+        <button type="submit" class="button">Fetch Stock Price</button>
+    </form>
+
+    <div id="stockResult" style="margin-top: 20px;"></div>
+
+    <script>
+        // Fetch stock data dynamically
+        const stockForm = document.getElementById('stockForm');
+        const stockResultDiv = document.getElementById('stockResult');
+
+        stockForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const symbol = document.getElementById('stockSymbol').value;
+
+            try {
+                const response = await fetch(`/api/stocks?symbol=${symbol}`);
+                if (!response.ok) throw new Error('Stock data not found!');
+
+                const stockData = await response.json();
+                const stock = stockData[0];
+
+                stockResultDiv.innerHTML = `
+                    <h3>Stock Information:</h3>
+                    <p><strong>Symbol:</strong> ${stock.symbol}</p>
+                    <p><strong>Price:</strong> $${stock.price.toFixed(2)}</p>
+                    <p><strong>Change:</strong> ${stock.change} (${stock.changesPercentage}%)</p>
+                `;
+            } catch (err) {
+                stockResultDiv.innerHTML = `<p style="color: red;">Error: ${err.message}</p>`;
+            }
+        });
+    </script>
+</body>
+
+</html>
