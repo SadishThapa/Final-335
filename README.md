@@ -2,7 +2,7 @@
 
 **Submitted by**: Sadish Thapa (directory id: sthapa14)  
 **Group Members**: Lucas Sotomayor (soto1120), Alexander Corea (axco1220)
-https://github.com/SadishThapa/Final-335/blob/main/README.md
+
 ## App Description
 
 This app allows users to track their finances and look at stock prices.
