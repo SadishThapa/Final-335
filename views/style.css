@@ -1,0 +1,139 @@
+
+/* AUTH PAGE CSS */
+.navbar {
+    background-color: #007bff; 
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar button {
+    background-color: white;
+    margin-left: auto;
+    color: #007bff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar button:hover {
+    background-color: #0056b3;
+    color: white;
+}
+
+.mainContent {
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    margin-top: 300px;
+}
+
+.mainContent h1 {
+    font-size: 36px;
+    color: #333;
+    font-size: 60px;
+}
+
+.mainContent button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.mainContent button:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+
+/* DASHBOARD PAGE CSS */
+
+#header {
+    text-align: center;
+}
+
+.form-container {
+    background: white;
+    width: 50%;
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.form-field {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.input, .button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.button {
+    background-color: #0e1810;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-decoration-line: none;
+}
+
+.button:hover {
+    background-color: #565f58;
+}
+
+
+/* CSS FPR LOGIN SIGNUP*/
+.container {
+    max-width: 600px;
+    max-height: 400px;
+    margin: auto;
+    margin-top: 200px;
+    background: white;
+    border-radius: 8px;
+    padding: 20px; 
+    text-align: center;
+    border-style: groove;
+}
+
+.container h1 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: black;
+}
+
+.form-field {
+    margin-bottom: 15px;
+    text-align: left;
+    width: 95%;
+    
+}
+
+.login-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
